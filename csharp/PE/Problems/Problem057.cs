@@ -15,15 +15,15 @@ namespace PE.Problems
 
         public override ValueType Solve()
         {
-            Debug.Assert(Expansion(1).Item1 == 03 && Expansion(1).Item2 == 02);
-            Debug.Assert(Expansion(2).Item1 == 07 && Expansion(2).Item2 == 05);
-            Debug.Assert(Expansion(3).Item1 == 17 && Expansion(3).Item2 == 12);
-            Debug.Assert(Expansion(4).Item1 == 41 && Expansion(4).Item2 == 29);
+            Debug.Assert(Expansion(0).Item1 == 03 && Expansion(0).Item2 == 02);
+            Debug.Assert(Expansion(1).Item1 == 07 && Expansion(1).Item2 == 05);
+            Debug.Assert(Expansion(2).Item1 == 17 && Expansion(2).Item2 == 12);
+            Debug.Assert(Expansion(3).Item1 == 41 && Expansion(3).Item2 == 29);
 
-            return Enumerable.Range(1, 1000).Select(Expansion).Count(e => Valid(e.Item1, e.Item2));
+            return Enumerable.Range(0, 999).Select(Expansion).Count(e => Valid(e.Item1, e.Item2));
         }
 
-        bool Valid(int n, int d)
+        bool Valid(ulong n, ulong d)
         {
             while (d>0)
             {
@@ -34,20 +34,22 @@ namespace PE.Problems
             return n > 0;
         }
 
-        Tuple<int,int> Expansion(int x)
+        Tuple<ulong, ulong> Expansion(int x)
         {
-            int n = 1;
-            int d = 2;
+            ulong n = 2;
+            ulong d = 1;
+            ulong t = 0;
+            Func<int, ulong> a = i => 1U;
+            Func<int, ulong> b = i => (i == 0) ? 1U : 2U;
 
-            for (int i = 1; i < x; i++)
+            for (int i = x; i >= 0; i--)
             {
-                n = 2*d + 1;
-                d = 2*d + 1;
+                t = n;
+                n = b(i) * n + a(i) * d;
+                d = t;
             }
 
-            n = d + 1;
-
-            return new Tuple<int, int>(n, d);
+            return new Tuple<ulong, ulong>(n, d);
         }
     }
 }
