@@ -1,0 +1,14 @@
+(define (Problem001_h n)
+	(if(eqv? n 0)
+		0
+		(+
+			(Problem001_h (- n 1))
+			(if(or (eqv? (remainder n 5) 0) (eqv? (remainder n 3) 0))
+				n
+				0
+			)
+		)
+	)
+)
+
+(define (Problem001) (Problem001_h 999))

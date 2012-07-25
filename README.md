@@ -18,6 +18,7 @@ Languages Used
 * JavaScript
 * PHP
 * Python
+* Scheme
 
 Current Status
 --------------
