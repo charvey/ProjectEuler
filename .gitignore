@@ -1,4 +1,12 @@
+csharp/PE.sln.DotSettings.user
 csharp/PE.suo
 csharp/PE/bin/
+csharp/PE/PE.csproj.DotSettings.user
 csharp/PE/obj/
 csharp/_ReSharper.PE/
+fsharp/ProjectEuler/ProjectEuler.sln.DotSettings.user
+fsharp/ProjectEuler/ProjectEuler.suo
+fsharp/ProjectEuler/ProjectEuler/bin/
+fsharp/ProjectEuler/ProjectEuler/ProjectEuler.fsproj.DotSettings.user
+fsharp/ProjectEuler/ProjectEuler/obj/
+fsharp/ProjectEuler/_ReSharper.ProjectEuler/
