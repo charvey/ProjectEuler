@@ -11,8 +11,10 @@ About Project Euler
 Languages Used
 --------------
 
+* C
 * C++
 * C#
+* F#
 * JavaScript
 * PHP
 * Python
