@@ -7,7 +7,7 @@ namespace PE
     {
         static void Main(string[] args)
         {
-            SolveOne(113);
+            SolveOne(115);
         }
 
         public static void SolveOne(int n)
