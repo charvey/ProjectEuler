@@ -81,7 +81,7 @@ namespace PE.Problems
             int m = 0;
             int p = 1;
 
-            while (Math.Pow(10, m)<n)
+            while (Math.Pow(10, m) < n)
             {
                 int nd = (n % (10 * p)) / p;
 
@@ -100,7 +100,7 @@ namespace PE.Problems
 
             int count = 0;
             bool first = true;
-            for (int i = baseNumber; i <= baseNumber+9*baseDigits; i+=baseDigits)
+            for (int i = baseNumber; i <= baseNumber + 9 * baseDigits; i += baseDigits)
             {
                 if (i >= n && i.IsPrime())
                 {
