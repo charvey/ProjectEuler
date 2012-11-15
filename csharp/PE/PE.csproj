@@ -64,6 +64,8 @@
     <Compile Include="DigitExtensions.cs" />
     <Compile Include="PrimeExtensions.cs" />
     <Compile Include="Problem.cs" />
+    <Compile Include="Problems\Problem098.cs" />
+    <Compile Include="Problems\Problem096.cs" />
     <Compile Include="Problems\Problem115.cs" />
     <Compile Include="Problems\Problem113.cs" />
     <Compile Include="Problems\Problem117.cs" />
