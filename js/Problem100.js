@@ -8,10 +8,25 @@ By finding the first arrangement to contain over 10^12 = 1,000,000,000,000 discs
 
 /*
 
-(b/n)*((b-1)/(n-1))=1/2
-(b^2-b)/(n^2-n)=1/2
-2*(b^2-b)=n^2-n
+(B/n)*((B-1)/(n-1))=1/2
+(B^2-B)/(n^2-n)=1/2
+2*(B^2-B)=n^2-n
+0=2*B^2-2*B+(-n(n+1))
 
 (-b+-sqrt(b^2-4ac))/2a
 
+(2+-sqrt(4-4*2*(n^2-n)))/4
+
+(2+-sqrt(4-8*n^2-8*n))/4
+
+(2+-2sqrt(1-2*n^2-2*n))/4
+
+(1/2) +- (1/2)*sqrt(1-2*(n^2+n))
+
 */
+
+function Problem100(){
+
+}
+
+Problem100();
