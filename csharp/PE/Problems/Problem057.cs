@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 
 namespace PE.Problems
@@ -23,7 +24,7 @@ namespace PE.Problems
             return Enumerable.Range(0, 999).Select(Expansion).Count(e => Valid(e.Item1, e.Item2));
         }
 
-        bool Valid(ulong n, ulong d)
+        bool Valid(BigInteger n, BigInteger d)
         {
             while (d>0)
             {
@@ -34,13 +35,13 @@ namespace PE.Problems
             return n > 0;
         }
 
-        Tuple<ulong, ulong> Expansion(int x)
+        Tuple<BigInteger, BigInteger> Expansion(int x)
         {
-            ulong n = 2;
-            ulong d = 1;
-            ulong t = 0;
-            Func<int, ulong> a = i => 1U;
-            Func<int, ulong> b = i => (i == 0) ? 1U : 2U;
+            BigInteger n = 2;
+            BigInteger d = 1;
+            BigInteger t = 0;
+            Func<int, BigInteger> a = i => 1U;
+            Func<int, BigInteger> b = i => (i == 0) ? 1U : 2U;
 
             for (int i = x; i >= 0; i--)
             {
@@ -49,7 +50,7 @@ namespace PE.Problems
                 d = t;
             }
 
-            return new Tuple<ulong, ulong>(n, d);
+            return new Tuple<BigInteger, BigInteger>(n, d);
         }
     }
 }

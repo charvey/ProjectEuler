@@ -3,15 +3,21 @@ using System.Linq;
 
 namespace PE.Problems
 {
-    class Problem081 : Problem
+    class Problem083 : Problem
     {
         public override int Number
         {
-            get { return 081; }
+            get { return 083; }
         }
 
         protected int[][] Matrix;
         protected int[][] MinSums;
+
+        private struct Node
+        {
+            public int X;
+            public int Y;
+        }
 
         public override ValueType Solve()
         {
@@ -23,25 +29,18 @@ namespace PE.Problems
                 MinSums[i] = new int[N];
 
             MinSums[0][0] = Matrix[0][0];
+            var nodes = new[] { new Node { X = 0, Y = 0 } }.AsEnumerable();
 
-            return MinSum(N - 1, N - 1);
-        }
+            throw new NotImplementedException();
 
-        protected int MinSum(int x, int y)
-        {
-            if (MinSums[x][y] != 0)
-                return MinSums[x][y];
+            do
+            {
+                var node = nodes.First();
 
-            var min = int.MaxValue;
+                nodes = nodes.OrderBy(n => MinSums[n.X][n.Y]);
+            } while (!(nodes.First().X == N - 1 && nodes.First().Y == N - 1));
 
-            if (x > 0)
-                min = Math.Min(min, MinSum(x - 1, y));
-            if (y > 0)
-                min = Math.Min(min, MinSum(x, y - 1));
-
-            MinSums[x][y] = min + Matrix[x][y];
-
-            return MinSums[x][y];
+            return MinSums[N - 1][N - 1];
         }
     }
 }

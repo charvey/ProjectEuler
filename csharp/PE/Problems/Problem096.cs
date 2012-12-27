@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PE.Problems
 {
-    class Problem096:Problem
+    class Problem096 : Problem
     {
         public override int Number
         {
@@ -24,13 +24,13 @@ namespace PE.Problems
 
             public Puzzle(string[] d)
             {
-                Cells = new Cell[9,9];
+                Cells = new Cell[9, 9];
 
                 for (int i = 0; i < 9; i++)
                 {
                     for (int j = 0; j < 9; j++)
                     {
-                        var c = d[i+1][j];
+                        var c = d[i + 1][j];
 
                         if (c == '0')
                         {
@@ -111,20 +111,21 @@ namespace PE.Problems
 
         public override ValueType Solve()
         {
-            var lines = GetFileLines("http://projecteuler.net/project/sudoku.txt").Take(05*10).ToList();
-            var puzzles = new Puzzle[lines.Count/10];
+            var lines = GetFileLines("http://projecteuler.net/project/sudoku.txt").Take(05 * 10).ToList();
+            var puzzles = new Puzzle[lines.Count / 10];
             for (var i = 0; i < lines.Count; i += 10)
             {
-                puzzles[i/10] = new Puzzle(lines.Skip(i).Take(10).ToArray());
+                puzzles[i / 10] = new Puzzle(lines.Skip(i).Take(10).ToArray());
             }
 
             int sum = 0;
             foreach (var puzzle in puzzles)
             {
-                Console.Out.WriteLine(puzzle);
+                Console.Out.WriteLine("Puzzle:\n" + puzzle);
                 puzzle.Solve();
-                Console.Out.WriteLine(puzzle);
-                sum += 100*puzzle.Cells[0, 0].Value + 10*puzzle.Cells[0, 1].Value + 1*puzzle.Cells[0, 2].Value;
+                Console.Out.WriteLine("Answer:\n" + puzzle);
+                Console.In.ReadLine();
+                sum += 100 * puzzle.Cells[0, 0].Value + 10 * puzzle.Cells[0, 1].Value + 1 * puzzle.Cells[0, 2].Value;
             }
 
             return sum;
