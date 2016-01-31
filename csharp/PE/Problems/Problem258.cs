@@ -19,19 +19,18 @@ namespace PE.Problems
             ulong i = 0;
             ulong f = 0;
 
+            while (i < 2000)
+            {
+                q.Enqueue(1);
+                i++;
+            }
+
             while (i < 1000000000000000000)
             {
-                if(i<2000)
-                {
-                    f = 1;
-                }
-                else
-                {
-                    f = q.Dequeue();
-                    f += q.Peek();
-                }
+                f = q.Dequeue();
+                f += q.Peek();
 
-                f %= 20092010;
+                f %= 20092010;                
 
                 q.Enqueue(f);
 
