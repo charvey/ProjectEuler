@@ -7,6 +7,11 @@ namespace PE
 {
     public static class DigitExtensions
     {
+        public static int DigitCount(this int n)
+        {
+            return (int)Math.Ceiling(Math.Log10(n + 0.1));
+        }
+
         public static IEnumerable<int> Digits(this int n)
         {
             var v = n;

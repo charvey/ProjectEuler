@@ -15,57 +15,48 @@ namespace PE.Problems
         {
             Debug.Assert(IsPerfectSquare(100));
 
+            long maxX = 0;
+            long maxD = 0;
 
-            ulong maxX = 0;
-            int maxD = 0;
-
-            var x = Enumerable.Range(1, 1000).AsParallel().Select(d => new Tuple<int,ulong>(d,D((ulong) d))).ToList();
-            
-            for (int d = 0; d < 1000; d++)
+            for (long d = 2; d <= 1000; d++)
             {
-                if(x[d].Item2>maxX)
+                if (IsPerfectSquare(d))
                 {
-                    maxX = x[d].Item2;
-                    maxD = x[d].Item1;
+                    continue;
+                }
+
+                long x = X(d);
+                Console.WriteLine(d + " " + x);
+                if(x>maxX)
+                {
+                    maxX = x;
+                    maxD = d;
                 }
             }
 
             return maxD;
         }
 
-        public ulong D(ulong d)
+        public long X(long d)
         {
-            if (IsPerfectSquare(d))
-                return 0;
+            long x = 1, y = 1;
 
-            for (ulong x = 2; x < ulong.MaxValue; x++)
+            while (true)
             {
-                ulong x2 = x * x;
+                long s = x * x - d * y * y;
 
-                if((x2-1)%d==0)
-                {
-                    ulong y2 = (x2 - 1) / d;
-
-                    if (IsPerfectSquare(y2))
-                        return x;
-                }
+                if (s == 1)
+                    return x;
+                else if (s < 1)
+                    x++;
+                else
+                    y++;
             }
-
-            throw new NotImplementedException();
         }
 
-        public bool IsPerfectSquare(ulong n)
+        public bool IsPerfectSquare(long n)
         {
             return Math.Sqrt(n) % 1 == 0;
-
-            ulong nn = 1;
-
-            while (nn*nn<n)
-            {
-                nn++;
-            }
-
-            return nn*nn == n;
         }
     }
 }
